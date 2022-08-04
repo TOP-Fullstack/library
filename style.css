@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -7,7 +9,15 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    position: absolute;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: 400;
 }
 
 /* Canvas style */
@@ -16,28 +26,40 @@ canvas {
     position: absolute;
     margin: 0;
     padding: 0;
+    transition: .4s ease-in-out;
 }
 
 /* Add book button styling */
 
 #add-book {
     position: fixed;
-    background: green;
+    background: #fee6e3;
+    border: 2px solid #111;
     width: 70px;
     height: 70px;
     font-size: 3rem;
-    color: white;
-    border-radius: 10px;
-    border: none;
+    font-weight: 300;
+    color: #111;
+    border-radius: 8px;
     bottom: 0;
     margin-bottom: 50px;
     transition: 0.4s ease;
+    z-index: 1;
+    box-shadow: 8px 8px;
 }
 
 #add-book:hover {
+    outline: 0;
+    box-shadow: 6px 6px;
     cursor: pointer;
-    transform: scale(1.01);
 }
+
+#add-book:active {
+    background-color: #ffdeda;
+    outline: 0;
+    box-shadow: none;
+}
+
 
 /* Main library display */
 
@@ -45,65 +67,190 @@ canvas {
     width: 95%;
     height: 95%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-auto-rows: 50%;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: 30%;
     align-items: center;
+    margin-top: 4%;
+    gap: 20px;
     justify-items: center;
     position: relative;
 }
 
 .library-item {
-    width: 65%;
-    height: 65%;
-    border: 4px solid #000;
+    width: 80%;
+    height: 90%;
     border-radius: 10px;
+    border: 2px solid #111;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: 0.4s ease;
+    transform: translateY(-5%);
+}
+
+.library-item>* {
+    margin: 10px;
+}
+
+.library-item img {
+    margin-top: 4px;
+    width: 20px;
+    height: 20px;
+}
+
+.library-item h1 {
+    text-align: center;
+    text-transform: uppercase;
+
 }
 
 /* Form */
 
-form {
-    visibility: hidden;
-    transition: 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    margin: 10%;
-    padding: 10%;
-    background-color: cyan;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
-
 .form-modal {
+    color: white;
     background: rgba(0, 0, 0, 0.567);
     width: 100vw;
     height: 100vh;
     position: absolute;
     z-index: 0;
-    visibility: hidden;
     transition: 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#form-submit {
-    width: 100px;
+.form-container {
+    width: clamp(500px, 70%, 800px);
+    opacity: 0;
+    height: clamp(350px, 40%, 400px);
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    padding: 3%;
+    transition: 0.4s ease;
+    background-color: rgb(107, 107, 156);
+}
+
+.form-container-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container-left>img {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    z-index: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s ease;
+    position: relative;
+    margin: auto;
+    width: 90%;
     height: 100%;
-    background-color: red;
 }
 
-.close {
-    font-size: 50px;
-    font-weight: 900;
-    top: 0;
-    right: 0;
+.form-stars {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-stars img {
+    width: 30px;
+    height: 30px;
+}
+
+.form-stars>img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+form>h1 {
+    margin-bottom: 40px;
+}
+
+form>input {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(107, 107, 107, 0.696);
+}
+
+form>label {
+    margin-bottom: 5px;
+    font-weight: 700;
+    align-self: start;
+}
+
+#submit {
+    background-image: linear-gradient(-180deg, #00D775, #00BD68);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 40px;
+    line-height: 43px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    user-select: none;
+    width: 100%;
+    border: 0;
+}
+
+#submit:hover {
+    background: #00bd68;
+}
+
+.modal-close {
+    font-size: 30px;
     position: absolute;
-    margin: 20%;
+    width: 50px;
+    height: 50px;
+    top: -30px;
+    right: -40px;
     z-index: 2;
     user-select: none;
     cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: black;
+    transition: .5s ease;
+}
+
+.modal-close svg {
+    transform: translate(0, 3px);
+}
+
+.modal-close:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+/* Fade-in + fade-out to be applied across the board */
+
+.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.fadeIn {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
 }

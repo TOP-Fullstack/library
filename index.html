@@ -15,17 +15,41 @@
 
     <div class="library"></div>
 
-    <div class="form-modal">
-        <form>
-            <label for="book">Book: </label>
-            <input type="text" name="book" id="book" required>
-            <label for="author">Author: </label>
-            <input type="text" name="author" id="author" required>
+    <div class="form-modal fadeOut">
+        <div class="form-container">
+            <div class="form-container-left">
+                <img src="img/book.png" alt="Vector drawing of a book">
+            </div>
+            <div class="form-container-right">
+                <form>
+                    <h1>New book</h1>
+                    <label for="book">Book: </label>
+                    <input type="text" name="book" id="book" required pattern="^[a-zA-z\s]+$"
+                        placeholder="The Name of the Wind">
+                    <label for="author">Author: </label>
+                    <input type="text" name="author" id="author" required pattern="^[a-zA-z\s]+$"
+                        placeholder="Patrick Rothfuss">
+                    <div class="form-stars">
+                        <img src="img/staroutline.svg" alt="A star icon" class="form-star1">
+                        <img src="img/staroutline.svg" alt="A star icon" class="form-star2">
+                        <img src="img/staroutline.svg" alt="A star icon" class="form-star3">
+                        <img src="img/staroutline.svg" alt="A star icon" class="form-star4">
+                        <img src="img/staroutline.svg" alt="A star icon" class="form-star5">
+                    </div>
 
+                    <button id="submit">Submit</button>
 
-            <button id="form-submit">Submit</button>
-        </form>
-        <div class="close">X</div>
+                    <div class="modal-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z"
+                                fill="black" />
+                        </svg>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
 
     <button id="add-book">+</button>
