@@ -18,17 +18,12 @@
     <div class="form-modal fadeOut">
         <div class="form-container">
             <div class="form-container-left">
-                <img src="img/book.png" alt="Vector drawing of a book">
+                <img src="img/books.png" alt="Vector drawing of a book">
+                <div class="book-shadow"></div>
             </div>
             <div class="form-container-right">
                 <form>
-                    <h1>New book</h1>
-                    <label for="book">Book: </label>
-                    <input type="text" name="book" id="book" required pattern="^[a-zA-z\s]+$"
-                        placeholder="The Name of the Wind">
-                    <label for="author">Author: </label>
-                    <input type="text" name="author" id="author" required pattern="^[a-zA-z\s]+$"
-                        placeholder="Patrick Rothfuss">
+                    <h1>Add a new book!</h1>
                     <div class="form-stars">
                         <img src="img/staroutline.svg" alt="A star icon" class="form-star1">
                         <img src="img/staroutline.svg" alt="A star icon" class="form-star2">
@@ -36,6 +31,13 @@
                         <img src="img/staroutline.svg" alt="A star icon" class="form-star4">
                         <img src="img/staroutline.svg" alt="A star icon" class="form-star5">
                     </div>
+                    <label for="book">Book: </label>
+                    <input type="text" name="book" id="book" required pattern="^[a-zA-z\s]+$"
+                        placeholder="The Name of the Wind">
+                    <label for="author">Author: </label>
+                    <input type="text" name="author" id="author" required pattern="^[a-zA-z\s]+$"
+                        placeholder="Patrick Rothfuss">
+
 
                     <button id="submit">Submit</button>
 

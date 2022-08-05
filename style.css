@@ -65,7 +65,7 @@ canvas {
 
 .library {
     width: 95%;
-    height: 95%;
+    height: 90%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-auto-rows: 30%;
@@ -88,6 +88,18 @@ canvas {
     flex-direction: column;
     transition: 0.4s ease;
     transform: translateY(-5%);
+    user-select: none;
+}
+
+.library-item:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.105);
+}
+
+.library-item:active {
+    transform: scale(0.99);
+    cursor: pointer;
 }
 
 .library-item>* {
@@ -103,7 +115,6 @@ canvas {
 .library-item h1 {
     text-align: center;
     text-transform: uppercase;
-
 }
 
 /* Form */
@@ -114,7 +125,7 @@ canvas {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     transition: 0.4s ease;
     display: flex;
     justify-content: center;
@@ -130,10 +141,12 @@ canvas {
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    background-color: #5aa77e;
     text-align: center;
     padding: 3%;
     transition: 0.4s ease;
-    background-color: rgb(107, 107, 156);
+    position: absolute;
+    z-index: 3;
 }
 
 .form-container-left {
@@ -143,10 +156,18 @@ canvas {
 }
 
 .form-container-left>img {
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
     position: relative;
     z-index: 1;
+    user-select: none;
+}
+
+.book-shadow {
+    position: absolute;
+    width: 200px;
+    bottom: 110px;
+    box-shadow: 0px 0px 23px 2px black;
 }
 
 form {
@@ -156,19 +177,22 @@ form {
     justify-content: center;
     transition: 0.4s ease;
     position: relative;
+    color: white;
     margin: auto;
     width: 90%;
     height: 100%;
+    user-select: none;
 }
 
 .form-stars {
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
 }
 
 .form-stars img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .form-stars>img:hover {
@@ -176,16 +200,18 @@ form {
     cursor: pointer;
 }
 
-form>h1 {
-    margin-bottom: 40px;
-}
-
 form>input {
     width: 100%;
     height: 25px;
+    padding-left: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
     border: 1px solid rgba(107, 107, 107, 0.696);
+}
+
+form>input:active,
+form>input:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 form>label {
@@ -194,24 +220,27 @@ form>label {
     align-self: start;
 }
 
+
 #submit {
-    background-image: linear-gradient(-180deg, #00D775, #00BD68);
+    background-image: linear-gradient(-180deg, #4c4c4c, #292929);
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-    color: #FFFFFF;
+    color: white;
+    font-weight: 500;
     cursor: pointer;
-    height: 40px;
-    line-height: 43px;
+    height: 30px;
+    line-height: 18px;
+    margin-top: 15px;
     outline: 0;
     overflow: hidden;
     padding: 0 20px;
     user-select: none;
-    width: 100%;
+    width: 80%;
     border: 0;
 }
 
 #submit:hover {
-    background: #00bd68;
+    background: #292929;
 }
 
 .modal-close {
