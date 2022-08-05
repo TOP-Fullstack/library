@@ -44,6 +44,7 @@ function init() {
     }
 }
 
+
 function draw() {
 
     // Fill the background
@@ -65,6 +66,7 @@ function draw() {
         ctx.drawImage(cloudImages[randomCloud], randomX, randomY, clouds[randomCloud].width, clouds[randomCloud].height);
 
     }
+
 }
 
 init();
